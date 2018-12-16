@@ -43,7 +43,7 @@ abstract class PDFReportDocument {
 
   /// Set a simple [text] page header that will be automatically added as the first line everytime a new page is generated
   /// This will use  'title' style by default unless overriddeny by [style]
-  setPageHeader(text, {Map style});
+  setPageHeader(text, {Map style, PDFDocumentTextAlignment alignment});
 
   /// Turn page numbering on and off with [active] - this will always default to false
   /// The optional [prefix] is added to the page number as prefix text, for example

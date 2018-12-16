@@ -7,4 +7,7 @@ class PDFTextStyle {
   Map heading2 = {"size": 12.0, "font": null};
   Map heading3 = {"size": 10.0, "font": null};
   Map normal = {"size": 10.0, "font": null};
+  Map large = {"size": 14.0, "font": null};
+  Map larger = {"size": 18.0, "font": null};
+  Map evenlarger = {"size": 22.0, "font": null};
 }

@@ -106,9 +106,9 @@ class ReportDocument implements PDFReportDocument {
     };
   }
 
-  setPageHeader(text, {Map style}) {
+  setPageHeader(text, {Map style, PDFDocumentTextAlignment alignment}) {
     style = style ?? textStyle.title;
-    header = {"text": text, "style": style};
+    header = {"text": text, "style": style, "alignment": alignment};
   }
 
   asBytes() {
@@ -339,7 +339,8 @@ class ReportDocument implements PDFReportDocument {
 
   /// Add a header to the page
   printHeader() {
-    addText(header['text'], style: header['style']);
+    addText(header['text'],
+        style: header['style'], alignment: header['alignment']);
     cursor.newLine();
   }
 
