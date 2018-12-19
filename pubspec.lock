@@ -60,8 +60,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.2"
-  pdf:
+  path_provider:
     dependency: "direct main"
+    description:
+      name: path_provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.1"
+  pdf:
+    dependency: "direct dev"
     description:
       name: pdf
       url: "https://pub.dartlang.org"
@@ -137,3 +144,4 @@ packages:
     version: "2.0.8"
 sdks:
   dart: ">=2.0.0 <3.0.0"
+  flutter: ">=0.1.4 <2.0.0"

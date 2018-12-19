@@ -10,13 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # Plugin Dependencies
-  pdf: ">=1.0.7 <1.1.0"
+  path_provider: ^0.4.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+#  flutter_driver:
+#    sdk: flutter
+
+  # Plugin Dependencies
+  pdf: ">=1.0.7 <1.1.0"
 
 
 
