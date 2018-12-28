@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'pdftextstyle.dart';
 import 'pdfdocumentimage.dart';
+import 'pdftextstyle.dart';
 
 /// Enum used to specify the alignment of text on a page
 enum PDFDocumentTextAlignment { left, right, center }
