@@ -8,8 +8,6 @@ import 'pdfmargin.dart';
 import 'pdfdocumentimage.dart';
 import 'pdfdocumenttext.dart';
 
-//import 'package:flutter/services.dart' show rootBundle;
-
 /// This is our concrete class used to represent a PDF document
 class ReportDocument implements PDFReportDocument {
   final PDFDocument document;
