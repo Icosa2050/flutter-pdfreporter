@@ -11,6 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
   path_provider: ^0.4.1
+  pdf:
+    path: /home/bernhard/development/packages/pdfunicode/dart_pdf/pdf
+  printing:
+    path: /home/bernhard/development/packages/pdfunicode/dart_pdf/printing
+
+
 
 dev_dependencies:
   flutter_test:
@@ -19,7 +25,9 @@ dev_dependencies:
 #    sdk: flutter
 
   # Plugin Dependencies
-  pdf: ">=1.0.7 <1.1.0"
+  #pdf: ">=1.0.7 <1.1.0"
+  #pdf:
+  #  path: /home/bernhard/development/packages/pdfunicode/dart_pdf/pdf
 
 
 

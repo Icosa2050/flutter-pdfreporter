@@ -4,7 +4,7 @@ import 'package:pdf/pdf.dart';
 /// IT calculates the [lineHeight] based on 0.15 of the total height of the text used
 class PDFDocumentText {
   String text;
-  PDFTTFFont font;
+  PdfTtfFont font;
   double size;
   double lineHeight;
   double lineWidth;

@@ -23,23 +23,23 @@ class PDFDocumentSize {
   /// Return the correct PDFFormatPage info for the selected paper
   get paper {
     if (size == null) {
-      return PDFPageFormat(width, height);
+      return PdfPageFormat(width, height);
     }
     switch (size) {
       case DocumentPaperSize.a5:
-        return (landscape) ? PDFPageFormat.a5.landscape : PDFPageFormat.a5;
+        return (landscape) ? PdfPageFormat.a5.landscape : PdfPageFormat.a5;
       case DocumentPaperSize.a3:
-        return (landscape) ? PDFPageFormat.a3.landscape : PDFPageFormat.a3;
+        return (landscape) ? PdfPageFormat.a3.landscape : PdfPageFormat.a3;
       case DocumentPaperSize.letter:
         return (landscape)
-            ? PDFPageFormat.letter.landscape
-            : PDFPageFormat.letter;
+            ? PdfPageFormat.letter.landscape
+            : PdfPageFormat.letter;
       case DocumentPaperSize.legal:
         return (landscape)
-            ? PDFPageFormat.legal.landscape
-            : PDFPageFormat.legal;
+            ? PdfPageFormat.legal.landscape
+            : PdfPageFormat.legal;
       case DocumentPaperSize.a4:
-        return (landscape) ? PDFPageFormat.a4.landscape : PDFPageFormat.a4;
+        return (landscape) ? PdfPageFormat.a4.landscape : PdfPageFormat.a4;
     }
   }
 }

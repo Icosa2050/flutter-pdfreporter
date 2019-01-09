@@ -10,14 +10,16 @@ import 'pdfdocumenttext.dart';
 
 /// This is our concrete class used to represent a PDF document
 class ReportDocument implements PDFReportDocument {
-  final PDFDocument document;
+  //final PDFDocument document;
+  final PdfDocument document;
   PDFTextStyle textStyle;
   final PDFDocumentMargin margin;
-  final PDFPageFormat paper;
+  //final PDFPageFormat paper;
+  final PdfPageFormat paper;
   final Color defaultFontColor;
   bool pageNumberingActive = false;
   Color currentFontColor;
-  PDFPage currentPage;
+  PdfPage currentPage;
   _Cursor cursor;
   Map header;
   Map pageNumberInfo;
@@ -28,7 +30,9 @@ class ReportDocument implements PDFReportDocument {
       @required this.textStyle,
       @required this.margin,
       @required this.defaultFontColor}) {
-    cursor = _Cursor(paper.dimension.h, paper.dimension.w);
+    //cursor = _Cursor(paper.dimension.h, paper.dimension.w);
+    //FIXME width and height
+    cursor = _Cursor(paper.dimension.y, paper.dimension.x);
     cursor.margin = margin;
     currentFontColor = defaultFontColor;
     PDFDocumentText textInfo = PDFDocumentText(
@@ -67,7 +71,7 @@ class ReportDocument implements PDFReportDocument {
 
     // Extract the image data
     ByteData bd = await result.toByteData(format: ImageByteFormat.rawRgba);
-    PDFImage pdfimage = PDFImage(document,
+    PdfImage pdfimage = PdfImage(document,
         image: bd.buffer.asUint8List(),
         width: result.width,
         height: result.height);
@@ -123,7 +127,7 @@ class ReportDocument implements PDFReportDocument {
   }
 
   newPage() {
-    currentPage = PDFPage(document, pageFormat: paper);
+    currentPage = PdfPage(document, pageFormat: paper);
     cursor.reset();
 
     // draw a border around the print margins
@@ -160,7 +164,7 @@ class ReportDocument implements PDFReportDocument {
     style = style ?? textStyle.normal;
 
     // set the font to use
-    PDFTTFFont textFont = style['font'];
+    PdfTtfFont textFont = style['font'];
 
     // add a paragraph space if required
     if (paragraph) {
@@ -214,7 +218,7 @@ class ReportDocument implements PDFReportDocument {
     style = style ?? textStyle.normal;
 
     // set the font to use
-    PDFTTFFont textFont = style['font'];
+    PdfTtfFont textFont = style['font'];
 
     // calculate the column spacing
     List spacings =
@@ -266,7 +270,7 @@ class ReportDocument implements PDFReportDocument {
   /* ************************************************** */
 
   /// Add a page number into the specified [page]
-  addPageNumber(PDFPage page, int pageNumber, int totalPages) {
+  addPageNumber(PdfPage page, int pageNumber, int totalPages) {
     String pageText = "$pageNumber of $totalPages";
     if (pageNumberInfo['prefix'] != null) {
       pageText = "${pageNumberInfo['prefix']} $pageNumber of $totalPages";
@@ -351,7 +355,7 @@ class ReportDocument implements PDFReportDocument {
     // Make sure we used the correct color
     currentPage
         .getGraphics()
-        .setColor(PDFColor.fromInt(currentFontColor.value));
+        .setColor(PdfColor.fromInt(currentFontColor.value));
 
     // add line to page
     currentPage.getGraphics().drawString(font, size, text, start, (y - yshim));
@@ -374,7 +378,7 @@ class ReportDocument implements PDFReportDocument {
     if (backgroundColor != null) {
       currentPage
           .getGraphics()
-          .setColor(PDFColor.fromInt(backgroundColor.value));
+          .setColor(PdfColor.fromInt(backgroundColor.value));
       currentPage.getGraphics().drawRect(
           cursor.x, cursor.y, (cursor.printWidth - indent), text.cursory);
       currentPage.getGraphics().fillPath();
@@ -398,7 +402,7 @@ class ReportDocument implements PDFReportDocument {
     // Set the text color
     currentPage
         .getGraphics()
-        .setColor(PDFColor.fromInt(currentFontColor.value));
+        .setColor(PdfColor.fromInt(currentFontColor.value));
 
     // print text to page
     currentPage.getGraphics().drawString(text.font, text.size, text.text,
@@ -428,7 +432,7 @@ class _Cursor {
   double printHeight;
 
   /// Default newline value
-  double lineSpacing = (PDFPageFormat.mm);
+  double lineSpacing = (PdfPageFormat.mm);
   //double paragraphHeight;
 
   // The space to allow if we have set up page numbering

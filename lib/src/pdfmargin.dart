@@ -18,18 +18,18 @@ class PDFDocumentMargin {
         _right = right  ?? standard;
 
   get top {
-    return _top * PDFPageFormat.mm;
+    return _top * PdfPageFormat.mm;
   }
 
   get left {
-    return _left  * PDFPageFormat.mm;
+    return _left  * PdfPageFormat.mm;
   }
 
   get bottom {
-    return _bottom  * PDFPageFormat.mm;
+    return _bottom  * PdfPageFormat.mm;
   }
 
   get right {
-    return _right  * PDFPageFormat.mm;
+    return _right  * PdfPageFormat.mm;
   }
 }

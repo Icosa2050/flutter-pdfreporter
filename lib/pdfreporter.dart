@@ -32,7 +32,7 @@ class PDFReporter {
       PDFDocumentSize paper,
       Color defaultFontColor}) async {
     // Make sure our params are loaded and defaulted
-    PDFDocument document = PDFDocument(deflate: zlib.encode);
+    PdfDocument document = PdfDocument(deflate: zlib.encode);
     textStyle = textStyle ?? await _createDefaultTextStyle(document);
     margin = margin ?? PDFDocumentMargin();
     defaultFontColor = defaultFontColor ?? Colors.black;
@@ -57,11 +57,11 @@ class PDFReporter {
         .load("packages/pdfreporter/fonts/OpenSans-SemiBold.ttf");
     ByteData boldFont =
         await rootBundle.load("packages/pdfreporter/fonts/OpenSans-Bold.ttf");
-    defaultStyle.normal['font'] = PDFTTFFont(document, standardFont);
-    defaultStyle.heading3['font'] = PDFTTFFont(document, semiBoldFont);
-    defaultStyle.heading2['font'] = PDFTTFFont(document, boldFont);
-    defaultStyle.heading1['font'] = PDFTTFFont(document, boldFont);
-    defaultStyle.title['font'] = PDFTTFFont(document, boldFont);
+    defaultStyle.normal['font'] = PdfTtfFont(document, standardFont);
+    defaultStyle.heading3['font'] = PdfTtfFont(document, semiBoldFont);
+    defaultStyle.heading2['font'] = PdfTtfFont(document, boldFont);
+    defaultStyle.heading1['font'] = PdfTtfFont(document, boldFont);
+    defaultStyle.title['font'] = PdfTtfFont(document, boldFont);
     return defaultStyle;
   }
 }
